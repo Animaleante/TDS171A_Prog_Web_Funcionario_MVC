@@ -79,12 +79,18 @@ public class FuncionarioView {
 	private void listar() {
 		List<Funcionario> list = funcionarioController.listar();
 		
-		System.out.println("Lista de funcionarios:");
-		
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println("Funcionario: " + list.get(i).getNome() + ", Salario: " + list.get(i).getSalario());
+		if(list == null) {
+			System.out.println("Houve um erro ao tentar listar os funcionarios.");
+		} else if(list.isEmpty()) {
+			System.out.println("A lista de funcionarios esta vazia.");
+		} else {
+			System.out.println("Lista de funcionarios:");
+			
+			for (int i = 0; i < list.size(); i++) {
+				System.out.println("Funcionario: " + list.get(i).getNome() + ", Salario: " + list.get(i).getSalario() + ", Tipo: " + (list.get(i) instanceof Diretor ? "Diretor" : (list.get(i) instanceof Secretario ? "Secretario" : "Professor")));
+			}
+			
+			System.out.println("");
 		}
-		
-		System.out.println("");
 	}
 }
