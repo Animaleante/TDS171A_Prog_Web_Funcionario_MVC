@@ -18,8 +18,7 @@ public class FuncionarioModel implements IFuncionarioDAO {
 
 	@Override
 	public List<Funcionario> listar() {
-		// TODO Auto-generated method stub
-		return null;
+		return funcionarioDAO.listar();
 	}
 
 }

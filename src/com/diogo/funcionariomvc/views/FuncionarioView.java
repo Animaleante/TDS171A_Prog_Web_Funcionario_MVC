@@ -1,5 +1,7 @@
 package com.diogo.funcionariomvc.views;
 
+import java.util.List;
+
 import com.diogo.funcionariomvc.controllers.FuncionarioController;
 import com.diogo.funcionariomvc.utils.Leitor;
 import com.diogo.funcionariomvc.vos.Diretor;
@@ -35,6 +37,7 @@ public class FuncionarioView {
 				listar();
 				break;
 			case 9:
+				System.out.println("Até mais!");
 				break;
 			default:
 				System.out.println("Opcao escolhida invalida!\n");
@@ -74,6 +77,14 @@ public class FuncionarioView {
 	}
 
 	private void listar() {
-		// TODO Auto-generated method stub
+		List<Funcionario> list = funcionarioController.listar();
+		
+		System.out.println("Lista de funcionarios:");
+		
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println("Funcionario: " + list.get(i).getNome() + ", Salario: " + list.get(i).getSalario());
+		}
+		
+		System.out.println("");
 	}
 }
